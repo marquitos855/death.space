@@ -34,7 +34,7 @@ div.puntuaciones1, div.puntuaciones2, div.puntuaciones3, div.puntuaciones4{
 	position: absolute;
 }
 
-#i{
+#iq,#iw,#ie,#ir{
 	padding-top: 10px;
   padding-left: 9.6px;
 	position: absolute;
@@ -55,8 +55,7 @@ div.puntuaciones1, div.puntuaciones2, div.puntuaciones3, div.puntuaciones4{
 	height:60px;
 }
 .p1{
-  border-bottom-width: 1.5px;
-  border-right-width: 1.5px;
+  border-width: 2.75px;
   border-color: #B2B2B2;
 	border-right-style: solid;
 	border-bottom-style: solid;
@@ -72,8 +71,7 @@ div.puntuaciones1, div.puntuaciones2, div.puntuaciones3, div.puntuaciones4{
 
 }
 .p2{
-  border-bottom-width: 1.5px;
-  border-left-width: 1.5px;
+  border-width: 2.75px;
   border-color: #B2B2B2;
 	border-left-style: solid;
 	border-bottom-style: solid;
@@ -89,8 +87,7 @@ div.puntuaciones1, div.puntuaciones2, div.puntuaciones3, div.puntuaciones4{
 
 }
 .p3{
-	border-top-width: 1.5px;
-  border-right-width: 1.5px;
+	border-width: 2.75px;
   border-color: #B2B2B2;
   border-right-style: solid;
 	border-top-style: solid;
@@ -103,8 +100,7 @@ div.puntuaciones1, div.puntuaciones2, div.puntuaciones3, div.puntuaciones4{
 	height:300px;
 }
 .p4{
-  border-top-width: 1.5px;
-  border-left-width: 1.5px;
+  border-width: 2.75px;
   border-color: #B2B2B2;
 	border-left-style: solid;
 	border-top-style: solid;
