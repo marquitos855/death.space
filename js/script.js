@@ -4,6 +4,7 @@ var municion;
 var dificultad;
 
 onload=function(){
+
 			municion=new Array ();
 
 			for(var i=1; i<=4;i++){
@@ -85,7 +86,7 @@ function raton(event){
 function change(i, n){
 
 	if(!municion[n].fijado)
-		$( "#"+i ).replaceWith("<img id='"+i+"' src='images/blue"+i+".svg' >");
+		$( "#"+i ).replaceWith("<img id='"+i+"' src='images/azul"+i+".svg' >");
 	else
 		$( "#"+i ).replaceWith("<img id='"+i+"' src='images/mirilla"+i+".svg' >");
 
