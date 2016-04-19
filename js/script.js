@@ -49,12 +49,21 @@ function decrementa(i){
 		$( ".m"+i ).replaceWith("<p class='m"+i+"'>"+x+"</p>");
 }
 
+function rotate(){
+	for(var i=1; i<=4; i++){
+		municion[i].pm=municion[(i%4)+1].pm;
+		municion[i].pc=municion[(i%4)+1].pc;
+	}
+
+}
+
 function recargar(){
 	for(var i=1; i<=4; i++){
 		if(municion[i].pm==0 && municion[i].pc==0)
 				$( ".puntuaciones"+i ).css("color", "#dadada");
 
-		municion[i].pm=500;
+		var d=parseInt(municion[i].pm+50);
+		municion[i].pm=d;
 		var x;
 		if(i%2==0)
 			x=municion[i].pm+"/"+municion[i].pc;
@@ -119,6 +128,7 @@ function teclas(evObject) {
 			case 'k':critico(3);break;
 			case 'l':critico(4);break;
 			case 'm':recargar();break;
+			case 'v':rotate();break;
 
 		}
 
@@ -155,7 +165,8 @@ function dispara(t){
 		switch(t){
 			case 1:
 				$("#q").css( "display","inline" );
-				setTimeout(flashq, 100);
+				setTimeout(function(){decrementa(1);
+				$( "#q" ).css( "display","none" );} , 100);
 				break;
 			case 2:
 				$("#w").css( "display","inline" );
