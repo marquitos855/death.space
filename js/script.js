@@ -3,8 +3,18 @@ var y=0;
 var municion;
 var dificultad;
 
-onload=function(){
+var map = [];
 
+ function keys(e){
+    e = e || event;
+		map[e.keyCode] = e.type == 'keydown'; // || 'keypressed'
+
+		var i, l = map.length;
+		for(i = 0; i < l; i ++)
+			if(map[i])teclas(i);
+}
+
+onload=function(){
 			municion=new Array ();
 
 			for(var i=1; i<=4;i++){
@@ -13,7 +23,6 @@ onload=function(){
 				municion[i].pm=500;
 				municion[i].fijado=false;
 			}
-
 }
 
 function decrementa(i){
@@ -99,44 +108,37 @@ function change(i, n){
 	else
 		$( "#"+i ).replaceWith("<img id='"+i+"' src='images/mirilla"+i+".svg' >");
 
+
+
+	municion[n].fijado=!municion[n].fijado;
 }
 
 
-function teclas(evObject) {
+function teclas(d) {
 
-	$( "#o" ).css( "color","black" );
-
-	var c = String.fromCharCode(evObject.which);
-
-	if (evObject.which!=0 && evObject.which!=13) {
-		switch(c){
-			case '1':change("iq", 1);municion[1].fijado=!municion[1].fijado;break;
-			case '2':change("iw", 2);municion[2].fijado=!municion[2].fijado;break;
-			case '3':change("ie", 3);municion[3].fijado=!municion[3].fijado;break;
-			case '4':change("ir", 4);municion[4].fijado=!municion[4].fijado;break;
-			case 'q':dispara(1);break;
-			case 'w':dispara(2);break;
-			case 'e':dispara(3);break;
-			case 'r':dispara(4);break;
-			case 't':dispara(1);dispara(2);dispara(3);dispara(4);break;
-			case 'u':alarma(1);break;
-			case 'i':alarma(2);break;
-			case 'o':alarma(3);break;
-			case 'p':alarma(4);break;
-			case 'h':critico(1);break;
-			case 'j':critico(2);break;
-			case 'k':critico(3);break;
-			case 'l':critico(4);break;
-			case 'm':recargar();break;
-			case 'v':rotate();break;
+		switch(d){
+			case 49:change("iq", 1);break; //1
+			case 50:change("iw", 2);break; //2
+			case 51:change("ie", 3);break; //3
+			case 52:change("ir", 4);break; //4
+			case 81:dispara(1);break; //q
+			case 87:dispara(2);break; //w
+			case 69:dispara(3);break; //e
+			case 82:dispara(4);break; //r
+			case 84:dispara(1);dispara(2);dispara(3);dispara(4);break; //t
+			case 85:alarma(1);break; //u
+			case 73:alarma(2);break; //i
+			case 79:alarma(3);break; //o
+			case 80:alarma(4);break; //p
+			case 72:critico(1);break; //h
+			case 74:critico(2);break; //j
+			case 75:critico(3);break; //k
+			case 76:critico(4);break; //l
+			case 77:recargar();break; //m
+			case 86:rotate();break; //v
 
 		}
 
-		console.log(c);
-	}else {
-		c = 'Pulsada tecla especial';
-		console.log(c);
-	}
 }
 
 function alarma(i){
@@ -170,15 +172,18 @@ function dispara(t){
 				break;
 			case 2:
 				$("#w").css( "display","inline" );
-				setTimeout(flashw, 100);
+				setTimeout(function(){decrementa(2);
+				$( "#w" ).css( "display","none" );}, 100);
 				break;
 			case 3:
 				$("#e").css( "display","inline" );
-				setTimeout(flashe, 100);
+				setTimeout(function(){decrementa(3);
+				$( "#e" ).css( "display","none" );}, 100);
 				break;
 			case 4:
 				$("#r").css( "display","inline" );
-				setTimeout(flashr, 100);
+				setTimeout(function(){decrementa(4);
+				$( "#r" ).css( "display","none" );}, 100);
 			break;
 		}
 
@@ -186,53 +191,22 @@ function dispara(t){
 		switch(t){
 			case 1:
 				$("#qf").css("display","inline" );
-				setTimeout(flashqf, 100);
+				setTimeout(function(){$( "#qf" ).css( "display","none" );}, 100);
 				break;
 			case 2:
 				$("#wf").css( "display","inline" );
-				setTimeout(flashwf, 100);
+				setTimeout(function(){$( "#wf" ).css( "display","none" );}, 100);
 				break;
 			case 3:
 				$("#ef").css( "display","inline" );
-				setTimeout(flashef, 100);
+				setTimeout(function(){$( "#ef" ).css( "display","none" );}, 100);
 				break;
 			case 4:
 				$("#rf").css( "display","inline" );
-				setTimeout(flashrf, 100);
+				setTimeout(function(){$( "#rf" ).css( "display","none" );}, 100);
 			break;
 		}
 
 	}
 
-}
-
-function flashq(){
-	decrementa(1);
-	$( "#q" ).css( "display","none" );
-}
-function flashw(){
-	decrementa(2);
-	$( "#w" ).css( "display","none" );
-}
-function flashe(){
-	decrementa(3);
-	$( "#e" ).css( "display","none" );
-}
-function flashr(){
-	decrementa(4);
-	$( "#r" ).css( "display","none" );
-}
-
-
-function flashqf(){
-	$( "#qf" ).css( "display","none" );
-}
-function flashwf(){
-	$( "#wf" ).css( "display","none" );
-}
-function flashef(){
-	$( "#ef" ).css( "display","none" );
-}
-function flashrf(){
-	$( "#rf" ).css( "display","none" );
 }
