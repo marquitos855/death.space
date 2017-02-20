@@ -5,6 +5,7 @@ var dificultad;
 
 var map = [];
 
+
  function keys(e){
     e = e || event;
 		map[e.keyCode] = e.type == 'keydown'; // || 'keypressed'
@@ -208,5 +209,10 @@ function dispara(t){
 		}
 
 	}
+
+}
+
+function go(){
+  $(".start").hide();
 
 }

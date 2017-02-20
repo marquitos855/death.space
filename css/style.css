@@ -9,7 +9,7 @@ div.listas{
     color:#ffffff;
 }
 div.puntuaciones1, div.puntuaciones2, div.puntuaciones3, div.puntuaciones4{
-	font-family: "planetan", Verdana, Tahoma;
+	  font-family: "planetan", Verdana, Tahoma;
     font-size: 25px;
     color:#dadada;
 }
@@ -111,4 +111,23 @@ div.puntuaciones1, div.puntuaciones2, div.puntuaciones3, div.puntuaciones4{
 	top:300px;
 	width:665px;
 	height:300px;
+}
+
+.start{
+  postition: absolute;
+  border-radius: 50px;
+  background-color: white;
+  text-decoration: none;
+  border:none;
+  color:#a80039;
+  padding: 16px 32px;
+  font-size: 24px;
+  border: 2px solid #a80039;
+  transition-duration: 0.6s;
+
+}
+
+.start:hover{
+  color: white;
+  background-color: #a80039;
 }
